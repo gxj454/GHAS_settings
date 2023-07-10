@@ -19,7 +19,7 @@ with sync_playwright() as p:
     #Login to Github - user & password obfuscation 
     page.goto('https://github.com/login')
     page.fill('input#login_field', 'USER')
-    page.fill('input#password', 'PASWWORD')
+    page.fill('input#password', 'PASSWORD')
     page.click('input[type=submit]')
     time.sleep(25)
 
