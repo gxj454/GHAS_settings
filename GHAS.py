@@ -24,7 +24,7 @@ with sync_playwright() as p:
     time.sleep(25)
 
     #Create CSV file
-    csv_file = open('temp_test.csv', 'w', newline='')
+    csv_file = open('C:\\Users\\(SHERWIN USER ID)\\OneDrive - Sherwin-Williams\\Desktop\\test.csv', 'w', newline='')
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['Repository', 'Dependabot', 'Code Scanning', 'Secret Scanning'])
 
@@ -40,7 +40,7 @@ with sync_playwright() as p:
         html = page.inner_html('#coverage-data')
         soup = BeautifulSoup(html, 'html.parser')
 
-# Seperate Data by Repository & Define Function
+        # Seperate Data by Repository & Define Function
         page.is_visible('#coverage-data')
         repository_divs = soup.find_all('div', class_='flex-1 d-flex flex-wrap')
 
@@ -60,13 +60,13 @@ with sync_playwright() as p:
 
 csv_file.close()
 
-with open('temp_test.csv', 'r+') as csv_file:
+with open('C:\\Users\\(SHERWIN USER ID)\\OneDrive - Sherwin-Williams\\Desktop\\temp.csv', 'r+') as csv_file:
     csv_reader = csv.reader(csv_file)
     header = next(csv_reader)
 
     header.extend(['GHAS','Secret Scanning Push Protection'])
 
-    test_file = open('GHAS_test.csv', 'w', newline='')
+    test_file = open('C:\\Users\\(SHERWIN USER ID)\\OneDrive - Sherwin-Williams\\Desktop\\GHAS_SETUP.csv', 'w', newline='')
     csv_writer = csv.writer(test_file)
     csv_writer.writerow(header)
 
@@ -102,7 +102,7 @@ with open('temp_test.csv', 'r+') as csv_file:
 
     test_file.close()
 
-    with open('GHAS_test.csv', 'r') as temp_file:
+    with open('C:\\Users\\(SHERWIN USER ID)\\OneDrive - Sherwin-Williams\\Desktop\\GHAS_SETUP.csv', 'r') as temp_file:
         csv_file.write(test_file.read())
 
     csv_file.truncate
