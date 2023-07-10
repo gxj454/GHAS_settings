@@ -48,7 +48,7 @@ with sync_playwright() as p:
             repository_name = div.find('a', class_='Link--primary text-bold d-block').get_text(strip=True)
     
             dependabot_setup = div.find('span', text='Dependabot').find_next_sibling('span').get_text(strip=True)
-        #codescanning_setup = div.find('span', text='Code scanning').find_next_sibling('span').get_text(strip=True)
+
             codescanning_element = div.find('span', text='Code scanning')
             if codescanning_element:
                 codescanning_setup= codescanning_element.find_next('span').get_text(strip=True)
@@ -65,7 +65,6 @@ with open('temp_test.csv', 'r+') as csv_file:
     header = next(csv_reader)
 
     header.extend(['GHAS','Secret Scanning Push Protection'])
-
 
     test_file = open('GHAS_test.csv', 'w', newline='')
     csv_writer = csv.writer(test_file)
