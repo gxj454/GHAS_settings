@@ -5,7 +5,6 @@ import time
 import requests
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
-from requests.auth import HTTPBasicAuth
 
 def handle_beforeunload(dialog):
     dialog.accept()
